@@ -9,7 +9,7 @@ document.getElementById("calculate").addEventListener("click", function () {
     j,
     repeatingNumIndex,
     k,
-    lengthOfArrayToIgnore = 2,
+    lengthOfArrayToIgnore = 1,
     X,
     currx,
     subArray = [];
