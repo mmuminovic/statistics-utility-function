@@ -11,14 +11,19 @@ document.getElementById("calculate").addEventListener("click", function () {
     k,
     lengthOfArrayToIgnore = 2,
     X,
-    currx;
+    currx,
+    subArray = [];
   X = [];
   POM = [];
   n = parseInt(document.getElementById("n").value);
   m = parseInt(document.getElementById("m").value);
   a = parseInt(document.getElementById("a").value);
-  b = document.getElementById("b").value ? parseInt(document.getElementById("b").value) : 1;
   x0 = parseInt(document.getElementById("x0").value);
+  if(!n || !m || !a || !x0){
+      document.getElementById('error').textContent = "Unesi ispravno vrednosti!";
+      return 0;
+  }
+  b = document.getElementById("b").value ? parseInt(document.getElementById("b").value) : 1;
   lengthOfArrayToIgnore = document.getElementById("toIgnore").value ? parseInt(document.getElementById("toIgnore").value) : 2;
   X.push(x0);
 
@@ -54,13 +59,15 @@ document.getElementById("calculate").addEventListener("click", function () {
           repeatingStartedAt = repeatingStartedAt > j ? j : repeatingStartedAt;
           doNumbersRepeating = true;
           repeatingNumIndex = repeatingNumIndex < lengthOfArray / 3 ? lengthOfArray / 3 : repeatingNumIndex;
+          subArray = subArray.length < arr1.length ? arr1 : subArray;
         }
         lengthOfArray -= 3;
         j++;
       }
     }
   }
-  document.getElementById('array').textContent = JSON.stringify(X).replace(/,/g, ", ");
+  document.getElementById('array').textContent = `Dobijeni niz: ${JSON.stringify(X).replace(/,/g, ", ")}`;
+  document.getElementById('repeatingArray').textContent = subArray.length > 0 ? `Podniz koji se ponavlja: ${JSON.stringify(subArray).replace(/,/g, ", ")}` : "";
   document.getElementById('repeatingStartedAt').textContent = `Ponavljanje počinje od člana u nizu s indeksom ${repeatingStartedAt ? repeatingStartedAt : ""}`;
   document.getElementById('response').textContent = `Da li postoji podniz koji se ponavlja: ${doNumbersRepeating ? "Da" : "Ne"}`;
   document.getElementById('repeatingLength').textContent = `${doNumbersRepeating ? `Dužina podniza koji se ponavlja: ${repeatingNumIndex}` : ""}`;

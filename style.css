@@ -28,6 +28,10 @@ label {
     background-color: lightblue;
 }
 
+#repeatingArray {
+    background-color: sandybrown;
+}
+
 #calculate:link,
 #calculate:visited {
     text-decoration: none;

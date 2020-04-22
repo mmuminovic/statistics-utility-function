@@ -8,10 +8,12 @@
   </head>
   <body>
     <div class="result" id="array"></div>
+    <div class="result" id="repeatingArray"></div>
     <div class="result" id="response"></div>
     <div class="result" id="repeatingStartedAt"></div>
     <div class="result" id="repeatingLength"></div>
     <div class="form">
+      <p id="error" style="color: red; font-weight: bold;"></p>
       <div>
         <label for="n">n:</label>
         <input type="number" name="n" id="n" />
@@ -30,11 +32,13 @@
       </div>
       <div>
         <label for="b">b:</label>
-        <input type="number" name="b" id="b" />
+        <input type="number" name="b" id="b" placeholder="1" />
       </div>
-      <div style="text-align: center">
-        <p style="margin: 5px;">Broj članova podniza koji se ignoriše pri ponavljanju</p>
-        <input type="number" name="toIgnore" id="toIgnore" />
+      <div style="text-align: center;">
+        <p style="margin: 5px;">
+          Broj članova podniza koji se ignoriše pri ponavljanju
+        </p>
+        <input type="number" name="toIgnore" id="toIgnore" placeholder="2" />
       </div>
       <div>
         <a href="#array" id="calculate">Izračunaj</a>
