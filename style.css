@@ -20,10 +20,20 @@ label {
 .result {
   flex: 1 1;
   background-color: lightgray;
-  max-height: 150px;
+  max-height: 120px;
   overflow: auto;
 }
 
 #array {
     background-color: lightblue;
+}
+
+#calculate:link,
+#calculate:visited {
+    text-decoration: none;
+    color: black;
+    display: block;
+    background-color: lightblue;
+    padding: 10px 20px;
+    margin-top: 20px;
 }
