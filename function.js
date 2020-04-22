@@ -4,7 +4,6 @@ document.getElementById("calculate").addEventListener("click", function () {
     m,
     n,
     b = 1,
-    repeatingStartedAt,
     i = 1,
     j,
     repeatingNumIndex,
@@ -58,9 +57,6 @@ document.getElementById("calculate").addEventListener("click", function () {
             JSON.stringify(arr1) === JSON.stringify(arr2) &&
             JSON.stringify(arr2) === JSON.stringify(arr3)
           ) {
-            repeatingStartedAt = repeatingStartedAt ? repeatingStartedAt : j;
-            repeatingStartedAt =
-              repeatingStartedAt > j ? j : repeatingStartedAt;
             doNumbersRepeating = true;
             repeatingNumIndex =
               repeatingNumIndex < lengthOfArray / 3
@@ -73,6 +69,15 @@ document.getElementById("calculate").addEventListener("click", function () {
         }
       }
     }
+
+    var repeatingStartedAt;
+    for(var l=0; l<(X.length - subArray.length); l++){
+        if(JSON.stringify(X.slice(l, l+subArray.length)) === JSON.stringify(subArray)){
+            repeatingStartedAt = repeatingStartedAt ? repeatingStartedAt : l;
+            repeatingStartedAt = repeatingStartedAt > l ? l : repeatingStartedAt;
+        }
+    }
+
     document.getElementById(
       "array"
     ).textContent = `Dobijeni niz: ${JSON.stringify(X).replace(/,/g, ", ")}`;
