@@ -24,7 +24,7 @@ document.getElementById("calculate").addEventListener("click", function () {
       return 0;
   }
   b = document.getElementById("b").value ? parseInt(document.getElementById("b").value) : 1;
-  lengthOfArrayToIgnore = document.getElementById("toIgnore").value ? parseInt(document.getElementById("toIgnore").value) : 2;
+//   lengthOfArrayToIgnore = document.getElementById("toIgnore").value ? parseInt(document.getElementById("toIgnore").value) : 2;
   X.push(x0);
 
   document.getElementById('error').textContent = "";
