@@ -1,9 +1,10 @@
 document.getElementById("calculate").addEventListener("click", function () {
-  var x1,
+  var x0,
     a,
     m,
     n,
-    repeats,
+    b = 1,
+    repeatingStartedAt,
     i = 1,
     j,
     repeatingNumIndex,
@@ -16,9 +17,10 @@ document.getElementById("calculate").addEventListener("click", function () {
   n = parseInt(document.getElementById("n").value);
   m = parseInt(document.getElementById("m").value);
   a = parseInt(document.getElementById("a").value);
-  x1 = parseInt(document.getElementById("x1").value);
-  lengthOfArrayToIgnore = parseInt(document.getElementById("toIgnore").value);
-  X.push(x1);
+  b = document.getElementById("b").value ? parseInt(document.getElementById("b").value) : 1;
+  x0 = parseInt(document.getElementById("x0").value);
+  lengthOfArrayToIgnore = document.getElementById("toIgnore").value ? parseInt(document.getElementById("toIgnore").value) : 2;
+  X.push(x0);
 
   repeats = 0;
   repeatingNumIndex = 0;
@@ -30,7 +32,7 @@ document.getElementById("calculate").addEventListener("click", function () {
         k++;
       }
     });
-    currx = (X[i - 1] + k * a) % m;
+    currx = (b*X[i - 1] + k * a) % m;
     X.push(currx);
     i++;
     if (i % 3 === 0 && i >= 6) {
@@ -48,6 +50,8 @@ document.getElementById("calculate").addEventListener("click", function () {
           JSON.stringify(arr1) === JSON.stringify(arr2) &&
           JSON.stringify(arr2) === JSON.stringify(arr3)
         ) {
+          repeatingStartedAt = repeatingStartedAt ? repeatingStartedAt : j;
+          repeatingStartedAt = repeatingStartedAt > j ? j : repeatingStartedAt;
           doNumbersRepeating = true;
           repeatingNumIndex = repeatingNumIndex < lengthOfArray / 3 ? lengthOfArray / 3 : repeatingNumIndex;
         }
@@ -57,6 +61,7 @@ document.getElementById("calculate").addEventListener("click", function () {
     }
   }
   document.getElementById('array').textContent = JSON.stringify(X).replace(/,/g, ", ");
+  document.getElementById('repeatingStartedAt').textContent = `Ponavljanje počinje od člana u nizu s indeksom ${repeatingStartedAt ? repeatingStartedAt : ""}`;
   document.getElementById('response').textContent = `Da li postoji podniz koji se ponavlja: ${doNumbersRepeating ? "Da" : "Ne"}`;
   document.getElementById('repeatingLength').textContent = `${doNumbersRepeating ? `Dužina podniza koji se ponavlja: ${repeatingNumIndex}` : ""}`;
 });

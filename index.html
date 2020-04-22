@@ -9,6 +9,7 @@
   <body>
     <div class="result" id="array"></div>
     <div class="result" id="response"></div>
+    <div class="result" id="repeatingStartedAt"></div>
     <div class="result" id="repeatingLength"></div>
     <div class="form">
       <div>
@@ -16,23 +17,27 @@
         <input type="number" name="n" id="n" />
       </div>
       <div>
-        <label for="x1">X<sub>1</sub>:</label>
-        <input type="number" name="x1" id="x1" />
+        <label for="x0">X<sub>0</sub>:</label>
+        <input type="number" name="x0" id="x0" />
+      </div>
+      <div>
+        <label for="a">a:</label>
+        <input type="number" name="a" id="a" />
       </div>
       <div>
         <label for="m">m:</label>
         <input type="number" name="m" id="m" />
       </div>
       <div>
-        <label for="a">a:</label>
-        <input type="number" name="a" id="a" />
+        <label for="b">b:</label>
+        <input type="number" name="b" id="b" />
       </div>
-      <div style="text-align: center; margin: 0;">
-        <p>Broj članova podniza koji se ignoriše pri ponavljanju</p>
+      <div style="text-align: center">
+        <p style="margin: 5px;">Broj članova podniza koji se ignoriše pri ponavljanju</p>
         <input type="number" name="toIgnore" id="toIgnore" />
       </div>
       <div>
-        <a href="#array" id="calculate">Izracunaj</a>
+        <a href="#array" id="calculate">Izračunaj</a>
       </div>
     </div>
     <script src="function.js"></script>
