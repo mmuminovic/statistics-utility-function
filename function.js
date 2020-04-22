@@ -27,6 +27,8 @@ document.getElementById("calculate").addEventListener("click", function () {
   lengthOfArrayToIgnore = document.getElementById("toIgnore").value ? parseInt(document.getElementById("toIgnore").value) : 2;
   X.push(x0);
 
+  document.getElementById('error').textContent = "";
+
   repeats = 0;
   repeatingNumIndex = 0;
   var doNumbersRepeating = false;
