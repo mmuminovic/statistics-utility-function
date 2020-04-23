@@ -3,7 +3,7 @@
   flex: 1;
   height: 95vh;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -20,8 +20,8 @@ label {
 .result {
   flex: 1 1;
   background-color: lightgray;
-  max-height: 120px;
   overflow: auto;
+  max-height: 100px;
 }
 
 #array {
@@ -30,6 +30,10 @@ label {
 
 #repeatingArray {
     background-color: sandybrown;
+}
+
+#minRepeatingArray {
+    background-color: lightgreen;
 }
 
 #calculate:link,

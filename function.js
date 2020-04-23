@@ -11,7 +11,8 @@ document.getElementById("calculate").addEventListener("click", function () {
     lengthOfArrayToIgnore = 1,
     X,
     currx,
-    subArray = [];
+    subArray = [],
+    minSubArray = [];
   X = [];
   POM = [];
   n = parseInt(document.getElementById("n").value);
@@ -63,6 +64,7 @@ document.getElementById("calculate").addEventListener("click", function () {
                 ? lengthOfArray / 3
                 : repeatingNumIndex;
             subArray = subArray.length < arr1.length ? arr1 : subArray;
+            minSubArray = minSubArray.length === 0 ? arr1 : minSubArray;
           }
           lengthOfArray -= 3;
           j++;
@@ -80,18 +82,25 @@ document.getElementById("calculate").addEventListener("click", function () {
 
     document.getElementById(
       "array"
-    ).textContent = `Dobijeni niz: ${JSON.stringify(X).replace(/,/g, ", ")}`;
-    document.getElementById("repeatingArray").textContent =
+    ).innerHTML = `Dobijeni niz: <p>${JSON.stringify(X).replace(/,/g, ", ")}</p>`;
+    document.getElementById("repeatingArray").innerHTML =
       subArray.length > 0
-        ? `Podniz koji se ponavlja: ${JSON.stringify(subArray).replace(
+        ? `Najduži podniz koji se ponavlja: <p>${JSON.stringify(subArray).replace(
             /,/g,
             ", "
-          )}`
+          )}</p>`
+        : "";
+    document.getElementById("minRepeatingArray").innerHTML =
+      minSubArray.length > 0
+        ? `Najmanji podniz koji se ponavlja: <p>${JSON.stringify(minSubArray).replace(
+            /,/g,
+            ", "
+          )}</p>`
         : "";
     document.getElementById(
       "repeatingStartedAt"
     ).textContent = `Ponavljanje počinje od člana u nizu s indeksom ${
-      repeatingStartedAt ? repeatingStartedAt : ""
+      repeatingStartedAt ? repeatingStartedAt + minSubArray.length : ""
     }`;
     document.getElementById(
       "response"
@@ -100,7 +109,12 @@ document.getElementById("calculate").addEventListener("click", function () {
     }`;
     document.getElementById("repeatingLength").textContent = `${
       doNumbersRepeating
-        ? `Dužina podniza koji se ponavlja: ${repeatingNumIndex}`
+        ? `Dužina najdužeg podniza koji se ponavlja: ${subArray.length}`
+        : ""
+    }`;
+    document.getElementById("repeatingMinLength").textContent = `${
+      doNumbersRepeating
+        ? `Dužina najkraćeg podniza koji se ponavlja: ${minSubArray.length}`
         : ""
     }`;
   }
